@@ -61,7 +61,7 @@ a:hover { text-decoration: underline; }
 
 /* CABECERA */
 .masthead {
-  background: var(--azul-oscuro);
+  background: var(--blanco);
   border-bottom: 3px solid var(--naranja);
   padding: 18px 40px;
   display: flex;
@@ -82,7 +82,7 @@ a:hover { text-decoration: underline; }
 .masthead-logo-text {
   font-family: var(--font-title);
   font-size: 18px;
-  color: var(--blanco);
+  color: var(--azul-oscuro);
   letter-spacing: 1px;
 }
 .masthead-logo-text span {
@@ -90,14 +90,14 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 11px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(0,61,165);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 .masthead-back {
   font-size: 13px;
-  color: var(--blanco);
-  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--azul-oscuro);
+  border: 1px solid rgba(0,61,165,0.3);
   padding: 6px 14px;
   border-radius: 4px;
   transition: all .2s;
@@ -801,7 +801,6 @@ a:hover { text-decoration: underline; }
 
 /* SLIDER ANTES/DESPUÉS */
 .sliders-wrap {
-  margin-top: 36px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -1009,10 +1008,7 @@ footer {
 <!-- CABECERA STICKY -->
 <div class="masthead">
   <a class="masthead-logo" href="https://www.ivcri.es/" target="_blank">
-    <div class="masthead-logo-text">
-      IVCR+i
-      <span>Institut Valencià de Conservació, Restauració i Investigació</span>
-    </div>
+    <img src="logos.jpg" alt="Generalitat Valenciana · IVCR+i" style="height:80px;width:auto;display:block;">
   </a>
   <a class="masthead-back" href="https://www.ivcri.es/" target="_blank">← Web principal</a>
 </div>
@@ -1021,7 +1017,7 @@ footer {
 <div class="hero">
   <div class="hero-etiqueta">Conservación y Restauración · Patrimonio Cultural</div>
   <h1>Cristo Crucificado de Crevillent</h1>
-  <p class="hero-sub">Memoria final de intervención sobre una escultura novohispana única en la Comunitat Valenciana</p>
+  <p class="hero-sub">Intervención sobre una escultura novohispana única conocida en la Comunitat Valenciana</p>
   <p class="hero-meta">Taller anónimo de Nueva España, México · Principios s. XVII · Parroquia de Nuestra Señora de Belén, Crevillent</p>
   <div class="hero-linea"></div>
 </div>
@@ -1029,11 +1025,12 @@ footer {
 <!-- NAVEGACIÓN INTERNA -->
 <nav class="nav-interna">
   <ul>
+    <li><a href="#comparativa" class="nav-link">Comparativa</a></li>
     <li><a href="#ficha" class="nav-link">Ficha técnica</a></li>
     <li><a href="#historia" class="nav-link">Estudio histórico · Cronología · Mapa</a></li>
     <li><a href="#conservacion" class="nav-link">Estado de conservación</a></li>
-    <li><a href="#proceso" class="nav-link">Proceso de intervención</a></li>
     <li><a href="#cientificos" class="nav-link">Estudios científicos</a></li>
+    <li><a href="#proceso" class="nav-link">Proceso de intervención</a></li>
     <li><a href="#equipo" class="nav-link">Equipo técnico</a></li>
   </ul>
 </nav>
@@ -1041,10 +1038,65 @@ footer {
 <!-- CONTENIDO -->
 <div class="wf-wrap">
 
-  <!-- 1. FICHA TÉCNICA + VISOR 3D -->
+  <!-- 1. SLIDERS INTERACTIVOS ANTES/DESPUÉS — ancho completo -->
+  <div class="seccion" id="comparativa" style="border-bottom:none;padding-bottom:0;">
+    <div class="seccion-header" style="margin-bottom:20px;">
+      <span class="seccion-num">01</span>
+      <h2>Comparativa antes / después</h2>
+      <span class="linea-accent"></span>
+      <p>Arrastra el divisor sobre cada imagen para comparar el estado inicial y el resultado final de la restauración.</p>
+    </div>
+    <div class="sliders-wrap" style="grid-template-columns:1fr 1fr;">
+
+      <!-- SLIDER FRONTAL -->
+      <div class="slider-bloque">
+        <div class="slider-label-bar">
+          <span class="slider-label-bar-title">Vista frontal</span>
+          <span class="slider-label-bar-hint">← Arrastra para comparar →</span>
+        </div>
+        <div class="slider-comparador" id="slider-frontal">
+          <img class="slider-img slider-img-antes"
+            src="estado inicial frontal.jpg" alt="Estado inicial frontal"
+            onerror="this.src=''; this.style.background='#eaeaea';">
+          <img class="slider-img slider-img-despues"
+            src="estado final frontal.jpg" alt="Estado final frontal"
+            onerror="this.src=''; this.style.background='#d8d8d8';">
+          <div class="slider-divisor">
+            <div class="slider-handle">⇔</div>
+          </div>
+          <span class="slider-etiqueta slider-etiqueta-antes">Antes</span>
+          <span class="slider-etiqueta slider-etiqueta-despues">Después</span>
+        </div>
+      </div>
+
+      <!-- SLIDER TRASERA -->
+      <div class="slider-bloque">
+        <div class="slider-label-bar">
+          <span class="slider-label-bar-title">Vista trasera</span>
+          <span class="slider-label-bar-hint">← Arrastra para comparar →</span>
+        </div>
+        <div class="slider-comparador" id="slider-trasera">
+          <img class="slider-img slider-img-antes"
+            src="estado inicial trasera.jpg" alt="Estado inicial trasera"
+            onerror="this.src=''; this.style.background='#eaeaea';">
+          <img class="slider-img slider-img-despues"
+            src="estado final trasera.jpg" alt="Estado final trasera"
+            onerror="this.src=''; this.style.background='#d8d8d8';">
+          <div class="slider-divisor">
+            <div class="slider-handle">⇔</div>
+          </div>
+          <span class="slider-etiqueta slider-etiqueta-antes">Antes</span>
+          <span class="slider-etiqueta slider-etiqueta-despues">Después</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. FICHA TÉCNICA + VISOR 3D -->
   <div class="seccion" id="ficha">
     <div class="seccion-header">
-      <span class="seccion-num">01</span>
+      <span class="seccion-num">02</span>
       <h2>Ficha técnica</h2>
       <span class="linea-accent"></span>
     </div>
@@ -1084,53 +1136,6 @@ footer {
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- SLIDERS INTERACTIVOS ANTES/DESPUÉS -->
-      <div class="sliders-wrap">
-
-        <!-- SLIDER FRONTAL -->
-        <div class="slider-bloque">
-          <div class="slider-label-bar">
-            <span class="slider-label-bar-title">Vista frontal</span>
-            <span class="slider-label-bar-hint">← Arrastra para comparar →</span>
-          </div>
-          <div class="slider-comparador" id="slider-frontal" style="height:420px;">
-            <img class="slider-img slider-img-antes"
-              src="estado inicial frontal.jpg" alt="Estado inicial frontal"
-              onerror="this.src=''; this.style.background='#eaeaea';">
-            <img class="slider-img slider-img-despues"
-              src="estado final frontal.jpg" alt="Estado final frontal"
-              onerror="this.src=''; this.style.background='#d8d8d8';">
-            <div class="slider-divisor">
-              <div class="slider-handle">⇔</div>
-            </div>
-            <span class="slider-etiqueta slider-etiqueta-antes">Antes</span>
-            <span class="slider-etiqueta slider-etiqueta-despues">Después</span>
-          </div>
-        </div>
-
-        <!-- SLIDER TRASERA -->
-        <div class="slider-bloque">
-          <div class="slider-label-bar">
-            <span class="slider-label-bar-title">Vista trasera</span>
-            <span class="slider-label-bar-hint">← Arrastra para comparar →</span>
-          </div>
-          <div class="slider-comparador" id="slider-trasera" style="height:420px;">
-            <img class="slider-img slider-img-antes"
-              src="estado inicial trasera.jpg" alt="Estado inicial trasera"
-              onerror="this.src=''; this.style.background='#eaeaea';">
-            <img class="slider-img slider-img-despues"
-              src="estado final trasera.jpg" alt="Estado final trasera"
-              onerror="this.src=''; this.style.background='#d8d8d8';">
-            <div class="slider-divisor">
-              <div class="slider-handle">⇔</div>
-            </div>
-            <span class="slider-etiqueta slider-etiqueta-antes">Antes</span>
-            <span class="slider-etiqueta slider-etiqueta-despues">Después</span>
-          </div>
-        </div>
-
       </div>
 
       <div>
@@ -1290,7 +1295,7 @@ footer {
           <div class="timeline-lado">
             <div class="timeline-card">
               <div class="timeline-fecha">Abril 2024 · Crevillent</div>
-              <h4>Memoria final de intervención</h4>
+              <h4>Devolución al culto</h4>
               <p>El IVCR+i publica la memoria final de intervención, poniendo en valor una obra única en la Comunitat Valenciana y contribuyendo al conocimiento del patrimonio novohispano en España.</p>
               <span class="timeline-tag tag-llegada">Publicación</span>
             </div>
@@ -1319,100 +1324,10 @@ footer {
   </div>
 
   <!-- 4. PROCESO DE INTERVENCIÓN -->
-  <div class="seccion" id="proceso">
-    <div class="seccion-header">
-      <span class="seccion-num">04</span>
-      <h2>Proceso de intervención</h2>
-      <span class="linea-accent"></span>
-      <p>La intervención se desarrolló en fases sucesivas siguiendo criterios de mínima intervención, reversibilidad y distinguibilidad, de acuerdo con los criterios internacionales del ICOM-CC y el ECCO.</p>
-    </div>
-
-    <div class="proceso-steps">
-      <div class="step"><div class="step-num">1</div><div class="step-label">Documentación<br>fotográfica</div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-label">Estudios<br>científicos</div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-label">Eliminación<br>de capas</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-label">Consolidación<br>estructural</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-label">Limpieza<br>química</div></div>
-      <div class="step"><div class="step-num">6</div><div class="step-label">Reintegración<br>matérica</div></div>
-      <div class="step"><div class="step-num">7</div><div class="step-label">Estucado<br>de lagunas</div></div>
-      <div class="step"><div class="step-num">8</div><div class="step-label">Reintegración<br>pictórica</div></div>
-      <div class="step"><div class="step-num">9</div><div class="step-label">Barnizado<br>final UV</div></div>
-    </div>
-
-    <!-- Eliminación de capas -->
-    <h3 class="sub-seccion">Eliminación de capas y repolicromías</h3>
-    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">Se decidió retirar todos los repintes hasta llegar a la sexta y séptima capas (sangre y policromía), las más contemporáneas al original, que conservaban entre el 85–90% de la pintura. El trabajo se realizó de forma mecánica, mediante bisturí y en seco.</p>
-    <div class="galeria galeria-3">
-      <div class="galeria-item" onclick="abrirImagen('eliminacion de capas_1.jpg')">
-        <img src="eliminacion de capas_1.jpg" alt="Eliminación de capas — fase 1"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>eliminacion de capas_1.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Eliminación de capas — fase 1</span></div>
-      </div>
-      <div class="galeria-item" onclick="abrirImagen('eliminacion de capas_2.jpg')">
-        <img src="eliminacion de capas_2.jpg" alt="Eliminación de capas — fase 2"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>eliminacion de capas_2.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Eliminación de capas — fase 2</span></div>
-      </div>
-    </div>
-
-    <!-- Reconstrucción del hombro -->
-    <h3 class="sub-seccion">Reconstrucción matérica — Hombro derecho</h3>
-    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">El gran orificio en el hombro derecho se rellenó con masilla de caña de maíz e hidroxipropilcelulosa, con caña común seca como refuerzo estructural interior.</p>
-    <div class="galeria galeria-3">
-      <div class="galeria-item" onclick="abrirImagen('reconstruccion del hombro_1.jpg')">
-        <img src="reconstruccion del hombro_1.jpg" alt="Reconstrucción del hombro — fase 1"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reconstruccion del hombro_1.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Reconstrucción del hombro — fase 1</span></div>
-      </div>
-      <div class="galeria-item" onclick="abrirImagen('reconstruccion del hombro_2.jpg')">
-        <img src="reconstruccion del hombro_2.jpg" alt="Reconstrucción del hombro — fase 2"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reconstruccion del hombro_2.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Reconstrucción del hombro — fase 2</span></div>
-      </div>
-    </div>
-
-    <!-- Estucado -->
-    <h3 class="sub-seccion">Estucado de lagunas</h3>
-    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">Una vez estucadas todas las pérdidas se rebajaron y nivelaron preparándolas para la reintegración pictórica.</p>
-    <div class="galeria galeria-3">
-      <div class="galeria-item" onclick="abrirImagen('estucado_1.jpg')">
-        <img src="estucado_1.jpg" alt="Fase de estucado 1"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>estucado_1.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Fase de estucado — detalle</span></div>
-      </div>
-      <div class="galeria-item" onclick="abrirImagen('estucado_2.jpg')">
-        <img src="estucado_2.jpg" alt="Fase de estucado 2"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>estucado_2.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Fase de estucado — vista general</span></div>
-      </div>
-    </div>
-
-    <!-- Reintegración cromática -->
-    <h3 class="sub-seccion">Reintegración pictórica</h3>
-    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">La reintegración se realizó en dos fases: primera con colores al agua y segunda con colores al barniz. El criterio empleado fue el <strong>regatino</strong>, para distinguir claramente las intervenciones modernas de la policromía original.</p>
-    <div class="galeria galeria-3">
-      <div class="galeria-item" onclick="abrirImagen('reintegracion cromatica_1.jpg')">
-        <img src="reintegracion cromatica_1.jpg" alt="Reintegración cromática 1"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reintegracion cromatica_1.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Reintegración pictórica — detalle</span></div>
-      </div>
-      <div class="galeria-item" onclick="abrirImagen('reintegracion cromatica_2.jpg')">
-        <img src="reintegracion cromatica_2.jpg" alt="Reintegración cromática 2"
-          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reintegracion cromatica_2.jpg</span></div>'">
-        <div class="galeria-overlay"><span class="galeria-caption">Reintegración pictórica — resultado</span></div>
-      </div>
-    </div>
-
-    <div class="seccion-destacada">
-      <h3>Criterios de intervención</h3>
-      <p>Todos los trabajos se han realizado respetando los principios de mínima intervención, reversibilidad y distinguibilidad, de acuerdo con los criterios internacionales del ICOM-CC y el ECCO. La masilla desarrollada específicamente para esta intervención —a base de caña de maíz con hidroxipropilcelulosa— garantiza la compatibilidad con el material original.</p>
-    </div>
-  </div>
-
-  <!-- 5. ESTUDIOS CIENTÍFICOS -->
+  <!-- 4. ESTUDIOS CIENTÍFICOS -->
   <div class="seccion" id="cientificos">
     <div class="seccion-header">
-      <span class="seccion-num">05</span>
+      <span class="seccion-num">04</span>
       <h2>Estudios científicos</h2>
       <span class="linea-accent"></span>
       <p>El estudio científico previo a la intervención combinó técnicas de análisis globales sin toma de muestra con análisis de materiales en laboratorio, revelando datos de extraordinario valor patrimonial.</p>
@@ -1473,10 +1388,101 @@ footer {
     <div class="hallazgo-card">
       <div class="hallazgo-icon">🔬</div>
       <div class="hallazgo-body">
-        <h3>Hallazgo extraordinario: uñas humanas reales</h3>
+        <h3>Hallazgo extraordinario: uñas humanas</h3>
         <p>Durante el proceso de limpieza de pies y manos se descubrieron siete uñas que, a priori, parecían realizadas con material orgánico. El análisis mediante espectrometría de infrarrojos por transformada de Fourier (FTIR-ATR) reveló una composición idéntica a la de las uñas humanas, con picos de absorción característicos de proteínas. La posterior datación por radiocarbono (C-14) situó su origen en torno al <strong>año 1450 d.C.</strong>, dato extraordinario al no coincidir con la elaboración de la escultura en el s. XVII, y que plantea interesantes interrogantes sobre su procedencia.</p>
         <div class="hallazgo-dato">Datación C-14 · Año 1450 d.C.</div>
       </div>
+    </div>
+  </div>
+
+  <!-- 5. PROCESO DE INTERVENCIÓN -->
+  <div class="seccion" id="proceso">
+    <div class="seccion-header">
+      <span class="seccion-num">05</span>
+      <h2>Proceso de intervención</h2>
+      <span class="linea-accent"></span>
+      <p>La intervención se desarrolló en fases sucesivas siguiendo criterios de mínima intervención, reversibilidad y distinguibilidad, de acuerdo con los criterios internacionales del ICOM-CC y el ECCO.</p>
+    </div>
+
+    <div class="proceso-steps">
+      <div class="step"><div class="step-num">1</div><div class="step-label">Documentación<br>fotográfica</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-label">Estudios<br>científicos</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-label">Eliminación<br>de capas</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-label">Consolidación<br>estructural</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-label">Limpieza<br>química</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-label">Reintegración<br>matérica</div></div>
+      <div class="step"><div class="step-num">7</div><div class="step-label">Estucado<br>de lagunas</div></div>
+      <div class="step"><div class="step-num">8</div><div class="step-label">Reintegración<br>pictórica</div></div>
+      <div class="step"><div class="step-num">9</div><div class="step-label">Barnizado<br>final UV</div></div>
+    </div>
+
+    <!-- Eliminación de capas -->
+    <h3 class="sub-seccion">Eliminación de capas y repolicromías</h3>
+    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">Se decidió retirar todos los repintes hasta llegar a la sexta y séptima capas (sangre y policromía), las más contemporáneas al original, que conservaban entre el 85–90% de la pintura. El trabajo se realizó de forma mecánica, mediante bisturí y en seco.</p>
+    <div class="galeria galeria-3">
+      <div class="galeria-item" onclick="abrirImagen('eliminacion de capas_1.jpg')">
+        <img src="eliminacion de capas_1.jpg" alt="Eliminación de capas — fase 1"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>eliminacion de capas_1.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Eliminación de capas — fase 1</span></div>
+      </div>
+      <div class="galeria-item" onclick="abrirImagen('eliminacion de capas_2.jpg')">
+        <img src="eliminacion de capas_2.jpg" alt="Eliminación de capas — fase 2"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>eliminacion de capas_2.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Eliminación de capas — fase 2</span></div>
+      </div>
+    </div>
+
+    <!-- Reconstrucción del hombro -->
+    <h3 class="sub-seccion">Reconstrucción matérica — Hombro derecho</h3>
+    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">El gran orificio en el hombro derecho se rellenó con masilla de caña de maíz e hidroxipropilcelulosa, y como refuerzo estructural interior se utilizó caña común seca.</p>
+    <div class="galeria galeria-3">
+      <div class="galeria-item" onclick="abrirImagen('reconstruccion del hombro_1.jpg')">
+        <img src="reconstruccion del hombro_1.jpg" alt="Reconstrucción del hombro — fase 1"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reconstruccion del hombro_1.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Reconstrucción del hombro — fase 1</span></div>
+      </div>
+      <div class="galeria-item" onclick="abrirImagen('reconstruccion del hombro_2.jpg')">
+        <img src="reconstruccion del hombro_2.jpg" alt="Reconstrucción del hombro — fase 2"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reconstruccion del hombro_2.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Reconstrucción del hombro — fase 2</span></div>
+      </div>
+    </div>
+
+    <!-- Estucado -->
+    <h3 class="sub-seccion">Estucado de lagunas</h3>
+    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">Una vez estucadas todas las pérdidas se rebajaron y nivelaron preparándolas para la reintegración pictórica.</p>
+    <div class="galeria galeria-3">
+      <div class="galeria-item" onclick="abrirImagen('estucado_1.jpg')">
+        <img src="estucado_1.jpg" alt="Fase de estucado 1"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>estucado_1.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Fase de estucado — detalle</span></div>
+      </div>
+      <div class="galeria-item" onclick="abrirImagen('estucado_2.jpg')">
+        <img src="estucado_2.jpg" alt="Fase de estucado 2"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>estucado_2.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Fase de estucado — vista general</span></div>
+      </div>
+    </div>
+
+    <!-- Reintegración cromática -->
+    <h3 class="sub-seccion">Reintegración pictórica</h3>
+    <p style="font-size:15px;line-height:1.8;margin-bottom:20px;">La reintegración se realizó en dos fases: primera con colores al agua y segunda con colores al barniz. El criterio empleado fue el <strong>regatino</strong>, para distinguir claramente las intervenciones modernas de la policromía original.</p>
+    <div class="galeria galeria-3">
+      <div class="galeria-item" onclick="abrirImagen('reintegracion cromatica_1.jpg')">
+        <img src="reintegracion cromatica_1.jpg" alt="Reintegración cromática 1"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reintegracion cromatica_1.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Reintegración pictórica — detalle</span></div>
+      </div>
+      <div class="galeria-item" onclick="abrirImagen('reintegracion cromatica_2.jpg')">
+        <img src="reintegracion cromatica_2.jpg" alt="Reintegración cromática 2"
+          onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><span class=\'ph-icon\'>🖼</span><span>reintegracion cromatica_2.jpg</span></div>'">
+        <div class="galeria-overlay"><span class="galeria-caption">Reintegración pictórica — resultado</span></div>
+      </div>
+    </div>
+
+    <div class="seccion-destacada">
+      <h3>Criterios de intervención</h3>
+      <p>Todos los trabajos se han realizado respetando los principios de mínima intervención, reversibilidad y distinguibilidad, de acuerdo con los criterios internacionales del ICOM-CC y el ECCO. La masilla desarrollada específicamente para esta intervención —a base de caña de maíz con hidroxipropilcelulosa— garantiza la compatibilidad con el material original.</p>
     </div>
   </div>
 
@@ -1522,10 +1528,7 @@ footer {
       </div>
     </div>
 
-    <div class="seccion-destacada" style="margin-top:36px;">
-      <h3>Fecha de elaboración del informe</h3>
-      <p>Valencia, 1 de abril de 2024. Coordinación del informe: Fanny Sarrió Martín. Redacción: Viqui Quiroga y Rosa María Román Garrido. Informe histórico-artístico: José Ignacio Catalán Martí. Análisis de materiales: David Juanes Barber y Livio Ferraza.</p>
-    </div>
+    
   </div>
 
 </div><!-- /wf-wrap -->
